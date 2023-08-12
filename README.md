@@ -1,6 +1,6 @@
 # WarehousePython
 Warehouse program that uses Python by applying CRUD method. This program is made for my Python Capstone for Module 1 of Purwadhika. <br />
-This program does not uses OOP, instead it uses multiple def functions and the main program will recall all of these funtions. <br />
+This program does not uses OOP, instead it uses multiple def functions and the main program will recall all of these funtions. <br /> <br />
 Below are some screenshots and descriptions of my program, for complete details, please view/download the main file.
 
 ## 1. When the program is initialized:
