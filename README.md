@@ -6,6 +6,7 @@ This program does not use OOP, instead it uses multiple def functions and the ma
 This program does not have a database, any item inserted will not be saved and any changes made will be reset if you re-run the program.
 This program uses English as it language, but some variable might be in Indonesian.
 <br />
+<br />
 Below are some screenshots and descriptions of my program, for complete details, please view/download the main file.
 # Introduction
 This is a warehouse program that stores graphic cards as its main data.
@@ -43,7 +44,7 @@ It requires the admin to approve of its usage.
 ## 6. Cashier Mode:
 ![image](https://github.com/nneguita/WarehousePython/assets/142083724/36f388e6-bdfd-494e-a07f-dd14da1a967f) <br />
 This function is for the purpose of sales. When sales happens, rather than modify an item manually, this function can be used to hasten the process <br />
-## 7. When menu 6 is selecte:
+## 7. When menu 6 is selected:
 ![image](https://github.com/nneguita/WarehousePython/assets/142083724/b8e738b2-6c27-4107-8e69-34dc20c0896a) <br />
 This function ends the program.
 
