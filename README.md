@@ -7,7 +7,7 @@ This program does not have a database, any item inserted will not be saved and a
 This program uses English as it language, but some variable might be in Indonesian.
 <br />
 Below are some screenshots and descriptions of my program, for complete details, please view/download the main file.
-#Introduction
+# Introduction
 This is a warehouse program that stores graphic cards as its main data.
 * Showing Stored Items
 * Adding Items
