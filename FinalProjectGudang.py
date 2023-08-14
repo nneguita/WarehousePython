@@ -185,6 +185,7 @@ def delete():
         print("Throwing you back into the main menu")
     else:
         print("You are not serious!\nThrowing you back into the main menu")
+    show(dict_warehouse)
 
 def modifypush():
     stockmodcol = input('Which Column do you want to modify?\n\t')
@@ -221,6 +222,7 @@ def modify():
             levalu.append([name, *inner.values()])
     print(tabulate(levalu, headers=heads, tablefmt='outline'))  
     modifypush()
+    show(dict_warehouse)
 
 cart = []
 cashierHead = ['SID','Name', 'Quantity', 'Price/Qty', 'Total Price']
@@ -238,8 +240,6 @@ def cashier():
                 print(f"Stock Quantity is not enough!\n{dict_warehouse[buyIndex]['name']} has {dict_warehouse[buyIndex]['stock']} left")
             else :
                 cart.append([buyIndex, dict_warehouse[buyIndex]['name'], boughtQty, dict_warehouse[buyIndex]['price'],boughtQty*dict_warehouse[buyIndex]['price']])
-            # print(tabulate(cart, headers=cashierHead, tablefmt='outline'))
-            # for item in cart :
             print(tabulate(cart, headers=cashierHead, tablefmt='outline'))
             checker = input('Continue adding? (y/n) = ')
             if(checker.lower() == 'n' or checker.lower() == 'no' or checker.lower() == 'nein') :
@@ -247,12 +247,9 @@ def cashier():
             else:
                 print("Yes is assumed, continuing the addition")
         print('Shopping List :')
-        # print('Name\t\t| Qty\t| Price\t\t\t| Total')
         print(tabulate(cart, headers=cashierHead, tablefmt='outline'))
         totalHarga = 0
-        for item in cart :
-            # print(f'{item[1]}\t| {item[2]}\t| {item[3]}\t| {item[2] * item[3]}')
-            # totalHarga += item[2] * item[3]    
+        for item in cart :  
             totalHarga += item[4] 
         while True :
             print(f'Amount to be paid = {totalHarga}')
@@ -289,24 +286,17 @@ while not valid:
     menu()
     if lemenu == 1:
         show(dict_warehouse)
-        valid = False
     elif lemenu == 2:
         add()
-        valid = False
     elif lemenu == 3:
         modify()
-        show(dict_warehouse)
-        valid = False
     elif lemenu == 4:
         delete()
-        show(dict_warehouse)
-        valid = False
     elif lemenu == 5:
         cashier()
-        valid = False
     elif lemenu == 6:
         print("Goodbye, See you tomorrow!")
         break
     else:
         print("Not within the given choices, Try Again!")
-        valid = False
+    valid = False
