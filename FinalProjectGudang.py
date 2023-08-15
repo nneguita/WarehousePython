@@ -173,14 +173,6 @@ def delete():
             del dict_warehouse[stockdelID]
         else:
             print("Incorrect, Throwing you back into main menu!")
-            # for name, inner in dict_warehouse.items():
-            #     try:
-            #         if name < stockdelID:
-            #             values.append([name, *inner.values()])
-            #         elif name > stockdelID:
-            #             values.append([name-1, *inner.values()])
-            #     except ValueError:
-            #         print('Not Possible')
     elif warningcont.lower() == 'n' or warningcont.lower() == 'no':
         print("Throwing you back into the main menu")
     else:
