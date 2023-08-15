@@ -148,9 +148,9 @@ def add():
             elif stock_name[-1].isdigit():
                 division = stock_name[3:6:2]
         stocklist = (stock_name,stock_manufacturer,stock_amount,price_tag,section,division)
-        
+        new_head = ['name', 'manufacturer', 'stock', 'price', 'section', 'division']
         stockdict = {}
-        stockdict = dict(zip(heads,stocklist))
+        stockdict = dict(zip(new_head,stocklist))
    
         for i in (stock_SID,stock_SID):
             dict_warehouse[i] = stockdict
