@@ -56,7 +56,7 @@ def menu():
             lemenu = int(lemenu)
             break
         except ValueError:
-             print("Not within the given choices, Try Again!")
+            print("Not within the given choices, Try Again!")
     return lemenu
 
 # Defining table's row for tabulate
@@ -83,7 +83,7 @@ def show(self):
         print(tabulate(values, headers=heads, tablefmt='outline'))
 # show(dict_warehouse)
 
-def side():
+def side(): # generating unique ID for Stock ID
     global stock_SID
     for stock_SID in dict_warehouse.keys():
         stock_SID += 1
@@ -108,31 +108,55 @@ def manufacturern():
             print('Not within the given choices, Try Again')
         return stock_manufacturer
 
-def stocka():
-    global stock_amount
+def retry(stop,kalimat):
     while True:
-        stock_amount = input('Stock Amount: ')
+        # retry(self,stop='break')
+        self = input(kalimat)
         try:
-            stock_amount = int(stock_amount)
-            break
+            self = int(self)
+            if stop == 'break':
+                break
+            else:
+                pass
         except:
             print("Not a number! Please input with numbers")
-    return stock_amount
+    return self
+
+def stocka():
+    global stock_amount
+    stock_amount = retry('break','Input Stock Amount: ')
+#     while True:
+#         # stock_amount = input('Stock Amount: ')
+#         retry(stock_amount)
+#         # try:
+#         #     stock_amount = int(stock_amount)
+#         #     break
+#         # except:
+#         #     print("Not a number! Please input with numbers")
+#     return stock_amount
 
 def p_tag():
     global price_tag
+    price_tag = retry('break','Input Price Tag: ' )
+
+def productN(): # Checking name duplicate
+    global stock_name
     while True:
-        price_tag = input('Price Tag: ')
-        try:
-            price_tag = int(price_tag)
+        stock_name = input('Product Name: ')
+        exists = False
+        for i in dict_warehouse.keys():
+            if stock_name == dict_warehouse[i]['name']:
+                exists = True
+                break
+        if exists:
+            print('This item already exists')
+        else:
             break
-        except:
-            print("Not a number! Please input with numbers")
-    return price_tag
 
 def add():
         side()
         stock_name = input('Product Name: ')
+        productN()
         manufacturern()
         stocka()
         p_tag()
@@ -168,7 +192,6 @@ def delete():
             print("Incorrect, Throwing you back into main menu!")
         if AdminPass == 123:
             show(dict_warehouse)
-            # values = []
             stockdelID = int(input('ID to be deleted : \n\t'))
             del dict_warehouse[stockdelID]
         else:
@@ -204,11 +227,11 @@ def modifypush():
     else:
         print("That's not modifiable!")
 
-def modify():
+def modify(): 
     show(dict_warehouse)
     global stockmodID
     stockmodID = int(input('ID to be modified : \n\t'))
-    levalu = []
+    levalu = [] # to show which data is being modified
     for name, inner in dict_warehouse.items():
         if name == stockmodID:
             levalu.append([name, *inner.values()])
